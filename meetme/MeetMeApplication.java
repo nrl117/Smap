@@ -19,7 +19,7 @@ public class MeetMeApplication extends Application<MeetMeConfiguration> {
 
     // Add here new data classes in order to register them at hibernate bundle
     private static final Class<?>[] entities = {de.meetme.data.Person.class};
-
+    //Test Comment
     /**
      * Create
      */
