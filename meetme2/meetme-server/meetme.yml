@@ -1,0 +1,49 @@
+# This is the Dropwizward Application Configuration file
+# This file is read into the MeetMeConfiguration class
+# If you need additional configuration you can extend the MeetMeConfiguration class and add the config here
+
+# Log Level to make log output visible
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+
+  loggers:
+     "de.meetme": DEBUG
+
+    # Enables the SQL query log
+     "org.hibernate.sql":
+       level: DEBUG
+       additive: false
+
+# App Server settings
+server:
+    rootPath: '/meetme/api/*' # Base path for the HTTP URL
+    applicationContextPath: /
+    applicationConnectors:
+        - type: http
+          port: 8085 # Port of the web server for HTTP requests
+
+# Database settings
+database:
+  driverClass: org.h2.Driver
+  user: sa
+  password:
+  url: jdbc:h2:mem:testDb # Use this for in memory database faster but after restart database is gone.
+#  url: jdbc:h2:~/meetme;DB_CLOSE_DELAY=-1; # Use this for persistent database. Database file is stored in your User directory: meetme.
+
+  properties:
+    charSet: UTF-8
+    maxWaitForConnection: 1s
+    validationQuery: "/* MyService Health Check */ SELECT 1"
+    minSize: 2
+    maxSize: 8
+    checkConnectionWhileIdle: false
+    evictionInterval: 10s
+    minIdleTime: 1 minute
+    hibernate.dialect: org.hibernate.dialect.H2Dialect
+    hibernate.show_sql: true
+    hibernate.generate_statistics: false
+    hibernate.hbm2ddl.auto: update # Valid: create or update (create: clear database and create fresh schema, update: keep existing database and just adjust schema if required)
+
+dbPort: 9095 # External Port of the H2 database server
