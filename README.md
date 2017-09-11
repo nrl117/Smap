@@ -1,2 +1,2 @@
 # Smap
-DHBW Project
+DHBW Stuttgart Project
