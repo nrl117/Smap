@@ -1,2 +1,0 @@
-# Smap
-DHBW Stuttgart Project
